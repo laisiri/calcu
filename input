@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Html</title>
+</head>
+<body>
+    <input type="text" id='in' width="20px" height="auto">
+    <input type="button" id="num-1" value='1' onclick = append(num1)>
+    <input type="button" id="num-2" value='2' onclick = append(num2)>
+    <input type="button" id="num-3" value='3' onclick = append(num3)>
+    <input type="button" id="num-4" value='4' onclick = append(num4)>
+    <input type="button" id="num-5" value='5' onclick = append(num5)>
+    <input type="button" id="num-6" value='6' onclick = append(num6)>
+    <input type="button" id="num-7" value='7' onclick = append(num7)>
+    <input type="button" id="num-8" value='8' onclick = append(num8)>
+    <input type="button" id="num-9" value='9' onclick = append(num9)>
+    <input type="button" id="num-0" value='0' onclick = append(num0)>
+    <input type="button" id="operatorPlus" value='+' onclick = appendOperator(plus)>
+    <input type="button" id="operatorMinus" value='-' onclick = appendOperator(minus)>
+    <input type="button" id="operatorTime" value='*' onclick = appendOperator(time)>
+    <input type="button" id="operatorDivision" value='/' onclick = appendOperator(devision)>
+    <input type="button" id="operatorEqual" value='=' onclick = >
+
+    <script>
+        let input = document.getElementById('in').value;
+        let num1 = document.getElementById('num-1').value;
+        let num2 = document.getElementById('num-2').value;
+        let num3 = document.getElementById('num-3').value;
+        let num4 = document.getElementById('num-4').value;
+        let num5 = document.getElementById('num-5').value;
+        let num6 = document.getElementById('num-6').value;
+        let num7 = document.getElementById('num-7').value;
+        let num8 = document.getElementById('num-8').value;
+        let num9 = document.getElementById('num-9').value;
+        let num0 = document.getElementById('num-0').value;
+        let plus = document.getElementById('operatorPlus').value;
+        let minus = document.getElementById('operatorMinus').value;
+        let time = document.getElementById('operatorTime').value;
+        let devision = document.getElementById('operatorDivision').value;
+        let equal = document.getElementById('operatorEqual').value;
+        let numbers = "";
+        let arrNum = [];
+        let result = 0;
+        let operator = '';
+        let arrOperator = [];
+        let numLength =   arrNum.length;
+        let operatorLength = arrOperator.length;
+        console.log(num1);
+        
+        function append(num){
+            //console.log(num);
+            numbers +=  num;
+            console.log(numbers);
+            document.getElementById('in').value = numbers;
+            
+        }
+
+        function appendOperator(operator){
+            let numFloat = strToFloat(numbers);
+            console.log(`operator ${operator}`);
+            
+            console.log(typeof numbers);
+            console.log(`numFloat ${numFloat} type of ${typeof numFloat}`);
+            
+            arrNum.push(numFloat);
+            //numbers = numbers + " " + operator + " ";
+            
+            numbers = " ";
+            if( numLength == 1){
+                result = numFloat;
+                arrOperator.push(operator);
+                document.getElementById('in').value =  operator;
+                operator = "";
+                }else if(numLength > 1 &&  arrOperator[operatorLength - 1] === '+'){
+                    //console.log(`arrNum[numLength - 2] ${arrNum[numLength - 2]} arrNum[numLength - 1] ${arrNum[numLength - 1]}`);
+                    result = result + arrNum[numLength - 1];
+                    console.log(`result + ${result}`);
+                    
+                    document.getElementById('in').value = result ;
+                }else if(numLength > 1 && arrOperator[operatorLength - 1]  === '-'){
+                    result = result - arrNum[numLength - 1];
+                    console.log(`result - ${result}`);
+                    document.getElementById('in').value = result ;
+                }
+        }            
+        function strToFloat(string){
+            return parseFloat(string);
+        } 
+
+        function assignOperator(sign){
+            operator = sign;
+            arrNum.push(strToFloat(numbers));
+
+
+
+        }
+
+        function operate(){
+            
+        }
+
+        
+        
+    </script>
+</body>
+</html>

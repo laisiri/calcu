@@ -1,0 +1,95 @@
+#calculator {
+
+    display: grid;
+    width: 70%;
+    height: auto;
+    
+    background-color: cornsilk;
+    grid-template-areas: 
+    'input input input input'
+    'output output output output'
+    'one two three plus'
+    'four five six multiple'
+    'seven eight nine devide'
+    'ce ze c';
+}
+
+#calculator > div {
+    background-color: burlywood;
+    font-size: 30px;
+}
+
+#input {
+    grid-area: input;
+    background-color: aquamarine;
+}
+#output {
+    grid-area: output;
+    background-color: aquamarine;
+}
+
+#one {
+    grid-area: one;
+
+}
+#two {
+    grid-area: two;
+
+}
+#three {
+    grid-area: three;
+
+}
+#four {
+    grid-area: four;
+
+}
+#five {
+    grid-area: five;
+
+}
+#six {
+    grid-area: six;
+
+}
+#seven {
+    grid-area: seven;
+
+}
+#eight {
+    grid-area: eight;
+
+}
+#nine {
+    grid-area: nine;
+
+}
+#ze {
+    grid-area: ze;
+
+}
+
+#ce {
+    grid-area: ce;
+}
+
+#c {
+    grid-area: c;
+}
+
+#plus {
+    grid-area: plus;
+}
+
+#subtrac {
+    grid-area: subtrac;
+}
+
+#multiple {
+    grid-area: multiple;
+}
+
+#divide {
+    grid-area: divide;
+}
+

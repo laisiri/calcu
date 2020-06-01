@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Grid</title>
+    <style>
+        #container{
+            margin: auto;
+            padding: 200px 0;
+            text-align: center;
+            display: grid;
+            width:30%;
+            height: 150px;
+            border: 1px solid chocolate;
+        }
+        
+        #present{
+
+            grid-column-start:1 ;
+            grid-column-end: 5;
+            background-color: seashell;
+            font-size: 40px;
+        }
+        #result{
+            
+            grid-column-start:1 ;
+            grid-column-end: 5;
+            background-color: seashell;
+            font-size: 40px;
+        }
+        .num,.operator {/*all .num and .operator*/
+           
+           padding:10px;
+           text-align: center;
+           font-size: 40px;
+        }
+        input{
+            font-size: 30px;
+            border: none;
+        }
+        #clear, #recall,#num-0,#divide {
+            font-size: 30px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id='container'>
+
+        <div id='present'><input type='text' style= 'width:100%'></div>
+        <div id='result'><input type='text' style= 'width:100%'></div>
+        <div id='num-1' class='num'>1</div>
+        <div id='num-2' class='num'>2</div>
+        <div id='num-3' class='num'>3</div>
+        <div id='plus' class='operator'>+</div>
+        <div id='num-4' class='num'>4</div>
+        <div id='num-5' class='num'>5</div>
+        <div id='num-6' class='num'>6</div>
+        <div id='minus' class='operator'>-</div>
+        <div id='num-7' class='num'>7</div>
+        <div id='num-8' class='num'>8</div>
+        <div id='num-9' class='num'>9</div>
+        <div id='multiple' class='operator'>*</div>
+        <div id='clear' class='operator'>CE</div>
+        <div id='num-0' class='num'>0</div>
+        <div id='recall' class='operator'>C</div>
+        <div id='divide' class='operator'>/</div>
+
+
+    </div>
+    
+</body>
+</html>
