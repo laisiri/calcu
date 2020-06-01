@@ -1,0 +1,37 @@
+#calculator {
+    margin-top: 150px;
+    margin-left: 550px;
+    background-color: navy;
+    width : 30%;
+    height: 500px;
+}
+
+#in, #out-result {
+    width : 100%;
+    height: 50px;
+    line-height: 40px;
+    font-size: 30px;
+    background-color: powderblue;
+    color: rgb(128, 0, 6);
+    text-align: right;
+    
+}
+
+#key-pad {
+
+    display: grid;
+    margin: 3px 3px 3px 3px;
+    grid-template-columns: auto auto auto ;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    
+}
+
+input {
+
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 90px;
+     
+}

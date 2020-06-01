@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./input.css">
+    
+    <title>Test Html</title>
+</head>
+<body>
+    <div id='calculator'>
+    <div id='in'  ></div>
+    <div id="out-result"></div>
+    <div id='key-pad'>
+
+    <input type="button" id="num-1" value='1' onclick = append(num1)>
+    <input type="button" id="num-2" value='2' onclick = append(num2)>
+    <input type="button" id="num-3" value='3' onclick = append(num3)>
+    <input type="button" id="num-4" value='4' onclick = append(num4)>
+    <input type="button" id="num-5" value='5' onclick = append(num5)>
+    <input type="button" id="num-6" value='6' onclick = append(num6)>
+    <input type="button" id="num-7" value='7' onclick = append(num7)>
+    <input type="button" id="num-8" value='8' onclick = append(num8)>
+    <input type="button" id="num-9" value='9' onclick = append(num9)>
+    <input type="button" id="num-dot" value='.' onclick = append(dot)>
+    <input type="button" id="num-0" value='0' onclick = append(num0)>
+    <input type="button" id="operatorEqual" value='=' onclick = appendOperator(equal)>
+    <input type="button" id="operatorPlus" value='+' onclick = appendOperator(plus)>
+    <input type="button" id="operatorMinus" value='-' onclick = appendOperator(minus)>
+    <input type="button" id="operatorTime" value='*' onclick = appendOperator(time)>
+    <input type="button" id="operatorDivision" value='/' onclick = appendOperator(devision)>
+    <input type="button" id="operatorClear" value='C' onclick = clearOut()>
+
+
+    
+    
+    </div>
+    </div>
+    <script>
+
+        //assign value of input to variable
+
+        let input = document.getElementById('in').value;
+        let num1 = document.getElementById('num-1').value;
+        let num2 = document.getElementById('num-2').value;
+        let num3 = document.getElementById('num-3').value;
+        let num4 = document.getElementById('num-4').value;
+        let num5 = document.getElementById('num-5').value;
+        let num6 = document.getElementById('num-6').value;
+        let num7 = document.getElementById('num-7').value;
+        let num8 = document.getElementById('num-8').value;
+        let num9 = document.getElementById('num-9').value;
+        let num0 = document.getElementById('num-0').value;
+        let dot = document.getElementById('num-dot').value;
+        let plus = document.getElementById('operatorPlus').value;
+        let minus = document.getElementById('operatorMinus').value;
+        let time = document.getElementById('operatorTime').value;
+        let devision = document.getElementById('operatorDivision').value;
+        let equal = document.getElementById('operatorEqual').value;
+        let clear = document.getElementById('operatorClear').value;
+
+        //numbers for store value of input
+        let numbers = "";
+        
+        //arr for save expression
+        let arrNum = [];
+        
+        //for save each operate
+        let result = 0;
+        //display statement
+        let statement = "";
+        //variable store operator
+        let operator = '';
+
+        //arr for store each operator
+        let arrOperator = [];
+
+        //lenght of arrNum
+        let numLength =   arrNum.length;
+
+        //length of arrOperator
+        let operatorLength = arrOperator.length;
+
+        //display result
+        let outResult = document.getElementById('in').innerHTML;
+
+        //variable for store string to float
+        let numFloat = 0; 
+
+        function clearOut() {
+            numbers = " ";
+            arrNum = [];
+            result = 0;
+            operator = " ";
+            arrOperator = [];
+            statement = " ";
+            document.getElementById('in').innerHTML = " ";
+            document.getElementById('out-result').innerHTML = " ";
+
+        } 
+        
+        //process for each operator
+        function operate( operator){
+
+            if(arrOperator[arrOperator.length -1] === '+'){ //previous +
+                                         
+                                         result += numFloat;
+                                         console.log(result);
+                                         document.getElementById('out-result').innerHTML = result;
+                                         arrOperator.push(operator);
+                                     
+                                     }else if(arrOperator[arrOperator.length -1] === '-'){//previous -
+                     
+                                         result -= numFloat;
+                                         console.log(result);
+                                         document.getElementById('out-result').innerHTML = result;
+                                         arrOperator.push(operator);
+                     
+                                     }else if(arrOperator[arrOperator.length -1] === '*'){//previous *
+                     
+                                         result *= numFloat;
+                                         console.log(result);
+                                         document.getElementById('out-result').innerHTML = result;
+                                         
+                                         arrOperator.push(operator);
+                                     
+                                     }else if(arrOperator[arrOperator.length -1] === '/'){//previous /
+                                        result /= numFloat;
+                                        console.log(result);
+                                        document.getElementById('out-result').innerHTML = result;
+                                        
+                                        arrOperator.push(operator);
+                     
+                     
+                                     }else if(arrOperator[arrOperator.length -1] === '='){//previous =
+
+                                         result = "";
+                                         document.getElementById('out-result').innerHTML = result;
+                                     }
+
+
+
+ 
+                 
+
+        }
+        
+        //function append each numbers
+        function append(num){
+            
+            //concatinate each num
+            numbers += num;
+            statement += numbers;
+            document.getElementById('in').innerHTML = statement;
+            
+        }
+
+        //function append operator and operate statement
+        function appendOperator(operator){
+            document.getElementById('in').innerHTML = "";
+            numFloat = strToFloat(numbers);
+            arrNum.push(numFloat);
+            numbers = " ";
+            if(arrNum.length === 1){
+                statement += " " + operator;
+                result = numFloat;
+                arrOperator.push(operator);
+                document.getElementById("in").innerHTML = statement;
+                document.getElementById('out-result').innerHTML = result;
+            }else if(arrNum.length > 1 && operator === "+"){ //*******operator = +
+                console.log(operator);
+                statement += " " + operator;
+                document.getElementById("in").innerHTML = statement;
+                operate(operator);
+
+            }else if(arrNum.length > 1 && operator === "-"){ //*******operator = -
+                console.log(operator);
+                statement += " " + operator;
+                document.getElementById("in").innerHTML = statement;
+                operate(operator);
+            }else if(arrNum.length > 1 && operator === "*"){ //*******operator = *
+                statement += " " + operator;
+                document.getElementById("in").innerHTML = statement;
+                console.log(operator);
+                operate(operator);
+            }else if(arrNum.length > 1 && operator === "/"){ //*******operator = /
+                statement += " " + operator;
+                document.getElementById("in").innerHTML = statement;
+                console.log(operator);
+                operate(operator);
+            }else if(arrNum.length > 1 && operator === "="){ //*******operator = /
+                operate(arrOperator);
+                console.log(operator);
+                
+            }
+        }  
+
+        //function transform string to float          
+        function strToFloat(string){
+            return parseFloat(string);
+        } 
+
+        function assignOperator(sign){
+            operator = sign;
+            arrNum.push(strToFloat(numbers));
+
+
+
+        }
+
+        let str = "2 + 3 + 4";
+        console.log(parseFloat(str));
+
+
+
+            
+
+
+        
+        
+    </script>
+</body>
+</html>
