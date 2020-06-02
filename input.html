@@ -134,7 +134,7 @@
                      
                                      }else if(arrOperator[arrOperator.length -1] === '='){//previous =
 
-                                         result = "";
+                                         //result = "";
                                          document.getElementById('out-result').innerHTML = result;
                                      }
 
@@ -150,8 +150,14 @@
             
             //concatinate each num
             numbers += num;
-            statement += numbers;
-            document.getElementById('in').innerHTML = statement;
+            console.log(`numbers : ${numbers}`);
+            
+            console.log(`statement :${statement}`)
+            if(statement === ""){
+            document.getElementById('in').innerHTML = numbers;
+            }else{
+                document.getElementById('in').innerHTML = statement + "" + numbers;
+            }
             
         }
 
@@ -160,34 +166,44 @@
             document.getElementById('in').innerHTML = "";
             numFloat = strToFloat(numbers);
             arrNum.push(numFloat);
-            numbers = " ";
+           // numbers = " ";
             if(arrNum.length === 1){
-                statement += " " + operator;
+                statement = numbers + " " + operator;
+                numbers = " ";
                 result = numFloat;
                 arrOperator.push(operator);
                 document.getElementById("in").innerHTML = statement;
                 document.getElementById('out-result').innerHTML = result;
             }else if(arrNum.length > 1 && operator === "+"){ //*******operator = +
                 console.log(operator);
-                statement += " " + operator;
+                console.log(statement);
+                statement +=    " " + numbers + " " + operator ;
+                numbers = " ";
                 document.getElementById("in").innerHTML = statement;
                 operate(operator);
 
             }else if(arrNum.length > 1 && operator === "-"){ //*******operator = -
                 console.log(operator);
-                statement += " " + operator;
+                statement +=     " " + numbers + " " + operator ;
+                numbers = " ";
                 document.getElementById("in").innerHTML = statement;
                 operate(operator);
             }else if(arrNum.length > 1 && operator === "*"){ //*******operator = *
-                statement += " " + operator;
+               
+                statement +=     " " + numbers + " " + operator ;
+                numbers = " ";
                 document.getElementById("in").innerHTML = statement;
                 console.log(operator);
                 operate(operator);
+            
             }else if(arrNum.length > 1 && operator === "/"){ //*******operator = /
-                statement += " " + operator;
+                
+                statement +=     " " + numbers + " " + operator ;
+                numbers = " ";
                 document.getElementById("in").innerHTML = statement;
                 console.log(operator);
                 operate(operator);
+            
             }else if(arrNum.length > 1 && operator === "="){ //*******operator = /
                 operate(arrOperator);
                 console.log(operator);
@@ -208,8 +224,7 @@
 
         }
 
-        let str = "2 + 3 + 4";
-        console.log(parseFloat(str));
+        
         
 
 
