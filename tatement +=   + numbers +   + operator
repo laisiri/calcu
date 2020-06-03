@@ -1,0 +1,23 @@
+[33mcommit 5a7c0f689978d6b55a38494266021d6f320bfd74[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: peter <thonyang08@gmail.com>
+Date:   Tue Jun 2 23:57:44 2020 +0700
+
+    edit result
+
+[33mcommit a1a8283efaf29eb3f7aef9396a1f58e9d1680cb4[m
+Author: peter <thonyang08@gmail.com>
+Date:   Tue Jun 2 07:11:19 2020 +0700
+
+    delete log
+
+[33mcommit ff41f839f2f099bd84848bfae79ba4c409f50861[m
+Author: peter <thonyang08@gmail.com>
+Date:   Mon Jun 1 23:33:53 2020 +0700
+
+    test git with add console.log git hub
+
+[33mcommit 15e8f2edad004bf34588be08fabb046ef77567fc[m
+Author: peter <thonyang08@gmail.com>
+Date:   Mon Jun 1 22:58:35 2020 +0700
+
+    init commit
